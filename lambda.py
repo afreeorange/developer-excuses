@@ -16,7 +16,7 @@ def _respond(message, accept_headers, code=200):
         response_content_type = "application/json"
         
     else:
-        message_body = message + '\n'
+        message_body = message + "\n"
         response_content_type = DEFAULT_RETURN_TYPE
 
     return {
@@ -31,8 +31,8 @@ def _respond(message, accept_headers, code=200):
 
 def lambda_handler(event, context):
     accept_headers = DEFAULT_RETURN_TYPE
-    if event.get('headers'):
-        accept_headers = event.get('headers').get('Accept', DEFAULT_RETURN_TYPE)
+    if event.get("headers"):
+        accept_headers = event.get("headers").get("Accept", DEFAULT_RETURN_TYPE)
 
     try:
         return _respond(
