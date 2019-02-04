@@ -40,7 +40,7 @@ def lambda_handler(event, context):
                 [
                     _ for
                     _ in requests.get(GITHUB_RAW_URI).text.split("\n")
-                    if _.strip() is not ''
+                    if _.strip() is not ""
                 ]
             ),
             accept_headers=accept_headers,
