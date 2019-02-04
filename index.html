@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta name=viewport content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="description" content="A random developer excuse">
+
+        <meta property="og:title" content="I'm Sorry">
+        <meta property="og:description" content="Here's a random excuse">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://sorry.nikhil.io">
+
+        <title>I'm Sorry</title>
+        <style type="text/css">
+            /* http://meyerweb.com/eric/tools/css/reset/
+               v4.0 | 20180602
+               License: none (public domain)
+            */
+            @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+            a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,main,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section{display:block}[hidden]{display:none}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+            html, body {
+                background: #316ac6;
+                font-family: 'Roboto Mono', monospace;
+                font-size: 1.5em;
+                font-weight: 400;
+                height: 100%;
+                letter-spacing: -1;
+                line-height: 135%;
+                overflow: hidden;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            h1 {
+                color: white;
+
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            #loading {
+                color: #bcc9e8;
+
+                text-align: center;
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            #oh-crap {
+                display: none;
+                color: white;
+
+                text-align: center;
+                display: none;
+                vertical-align: middle;
+            }
+
+            #wrapper {
+                width: 90%;
+                display: table;
+                height: 100%;
+                overflow: hidden;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <noscript>
+            <p>This sadly requires Javascript to be enabled on your browser 😕</p>
+        </noscript>
+        <div id="wrapper">
+            <div id="oh-crap">I actually failed to fetch a random excuse from the serverless cloud infrastructure I'm deployed on 😑</div>
+            <div id="loading">let&#8217;s see&hellip; 🧐</div>
+            <h1 id="excuse"></h1>
+        </div>
+    </body>
+    <script type="text/javascript">
+
+    const API_ENDPOINT = 'https://sorry.nikhil.io/excuse';
+
+    const showErrorState = () => {
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('oh-crap').style.display = 'table-cell';
+
+        return false;
+    }
+
+    document.body.addEventListener('click', e => window.location.reload());
+
+    window.onload = () => {
+        fetch(API_ENDPOINT)
+        .then(response => {
+            if (!response.ok) {
+                showErrorState();
+            } else {
+                return response.text();
+            }
+        })
+        .then(excuse => {
+            excuse = excuse.replace(/\n/g, '');
+            let suffixEmoji = (excuse[excuse.length - 1] === '?') ? '🤔' : '🤷‍♀️';;
+
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('excuse').innerText = excuse + ' ' + suffixEmoji;
+        })
+        .catch(e => {
+            showErrorState();
+        });
+    }
+
+    </script>
+</html>
