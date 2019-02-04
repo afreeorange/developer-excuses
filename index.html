@@ -5,7 +5,7 @@
         <meta name="description" content="A random developer excuse">
 
         <meta property="og:title" content="I'm Sorry">
-        <meta property="og:description" content="Here's a random excuse">
+        <meta property="og:description" content="A random developer excuse">
         <meta property="og:type" content="website">
         <meta property="og:url" content="https://sorry.nikhil.io">
 
@@ -20,16 +20,15 @@
             a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,main,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section{display:block}[hidden]{display:none}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
 
             html, body {
-                background: #316ac6;
+                background: rgb(0, 17, 165);
+                cursor: pointer;
                 font-family: 'Roboto Mono', monospace;
                 font-size: 1.5em;
                 font-weight: 400;
                 height: 100%;
-                letter-spacing: -1;
-                line-height: 135%;
+                line-height: 150%;
                 overflow: hidden;
                 text-align: center;
-                cursor: pointer;
             }
 
             h1 {
@@ -86,7 +85,7 @@
         return false;
     }
 
-    document.body.addEventListener('click', () => window.location.reload());
+    document.body.addEventListener('click', e => window.location.reload());
 
     window.onload = () => {
         fetch(API_ENDPOINT)
@@ -99,7 +98,7 @@
         })
         .then(excuse => {
             excuse = excuse.replace(/\n/g, '');
-            let suffixEmoji = (excuse[excuse.length - 1] === '?') ? '🤔' : '🤷‍♀️';
+            let suffixEmoji = (excuse[excuse.length - 1] === '?') ? '🤔' : '🤷‍♀️';;
 
             document.getElementById('loading').style.display = 'none';
             document.getElementById('excuse').innerText = excuse + ' ' + suffixEmoji;
