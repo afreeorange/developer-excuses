@@ -1,3 +1,16 @@
-# #!/bin/env python
+#!/usr/local/bin/python
 
-# print('I am python')
+import json
+from hashlib import md5
+
+excuses = ""
+with open("excuses.txt") as f:
+    excuses = f.readlines()
+
+excuses_in_json = {
+    md5(str.encode(excuse.strip())).hexdigest(): excuse.strip()
+    for excuse in excuses
+}
+
+with open('sorry.nikhil.io/excuses.json', 'w') as f:
+    f.write(json.dumps(excuses_in_json))
