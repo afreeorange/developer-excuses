@@ -11,13 +11,9 @@ jobs:
       - checkout
 
       - run:
-          name: Greeting
-          command: echo Hello, world.
-
-      - run:
           name: Sample MD5
           command: echo "COME ON" | md5sum
 
       - run:
           name: Deploy to S3
-          command: ./deploy
+          command: ./.circleci/deploy
