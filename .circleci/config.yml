@@ -18,8 +18,8 @@ jobs:
           command: date
 
       - run:
-          name: Show a UUID
-          command: uuidgen
+          name: Sample MD5
+          command: echo "COME ON" | md5sum
 
       - run:
           name: Deploy to S3

@@ -2,3 +2,4 @@
 
 echo "I am the deploy script"
 aws --help
+python --version
