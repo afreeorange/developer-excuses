@@ -22,7 +22,7 @@ jobs:
       - checkout
       - run:
           name: Trying Github
-          command: tree ./
+          command: ls -l ./sorry.nikhil.io
 
 workflows:
   version: 2.1
