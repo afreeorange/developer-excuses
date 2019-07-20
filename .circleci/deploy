@@ -1,5 +1,6 @@
 #!/bin/bash
 
+which python
 echo "I am the deploy script"
 echo `date` > test
 aws s3 cp test s3://sorry.nikhil.io/
