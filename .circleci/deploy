@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "Deploying excuses to S3"
-aws s3 sync ../sorry.nikhil.io/ s3://sorry.nikhil.io/
+aws s3 sync sorry.nikhil.io/ s3://sorry.nikhil.io/
