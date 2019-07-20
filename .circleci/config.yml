@@ -11,9 +11,9 @@ jobs:
       - checkout
 
       - run:
-          name: Sample MD5
-          command: echo "COME ON" | md5sum
+          name: Building excuses, lol
+          command: ./.circleci/build
 
       - run:
-          name: Deploy to S3
+          name: Deploying to S3
           command: ./.circleci/deploy
