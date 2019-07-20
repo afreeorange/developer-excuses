@@ -1,4 +1,6 @@
 version: 2
+orbs:
+  aws-cli: circleci/aws-cli@0.1.13
 jobs:
   build:
     docker:
@@ -14,3 +16,11 @@ jobs:
       - run:
           name: Print the Current Time
           command: date
+
+      - run:
+          name: Show a UUID
+          command: uuidgen
+
+      - run:
+          name: Deploy to S3
+          command: ./deploy
