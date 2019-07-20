@@ -16,8 +16,6 @@ jobs:
           command: ./.circleci/deploy
 
   github-release:
-    requires:
-      - build
     docker:
       - image: cibuilds/github:0.10
     steps:
@@ -31,4 +29,6 @@ workflows:
   build_and_release:
     jobs:
       - build
-      - github-release
+      - github-release:
+          requires:
+            - build
