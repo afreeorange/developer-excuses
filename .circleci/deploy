@@ -1,6 +1,5 @@
 #!/bin/bash
 
 echo "I am the deploy script"
-aws --help
-pip --version
-python --version
+echo `date` > test
+aws s3 cp test s3://sorry.nikhil.io/
