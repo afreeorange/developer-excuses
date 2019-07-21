@@ -6,8 +6,6 @@ jobs:
     docker:
       - image: circleci/python:3.7
     steps:
-      - attach_workspace:
-          at: ./sorry.nikhil.io
       - aws-cli/install
       - checkout
       - run:
@@ -24,7 +22,7 @@ jobs:
       - checkout
       - run:
           name: Trying Github
-          command: ls -l ./sorry.nikhil.io
+          command: ls -l ./sorry.nikhil.io && ls -l /root/project
 
 workflows:
   version: 2.1
