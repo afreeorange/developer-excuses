@@ -24,11 +24,10 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          # Must be absolute path or relative path from working_directory
-          at: /tmp/workspace
+          at: /workspace
       - run:
           name: Trying Github
-          command: ls -l /tmp/workspace/sorry.nikhil.io/
+          command: ls -l /tmp/workspace/ && env
 
 workflows:
   version: 2.1
