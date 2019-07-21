@@ -12,8 +12,8 @@ jobs:
           name: Building excuses, lol
           command: ./.circleci/build
       - persist_to_workspace:
-          root: /root/project
-          paths: sorry.nikhil.io/
+          root: .
+          paths: sorry.nikhil.io/*
       - run:
           name: Deploying to S3
           command: ./.circleci/deploy
@@ -23,9 +23,12 @@ jobs:
       - image: cibuilds/github:0.10
     steps:
       - checkout
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: /tmp/workspace
       - run:
           name: Trying Github
-          command: ls -l ./sorry.nikhil.io && ls -l /root/project
+          command: ls -l ./sorry.nikhil.io/ && ls -l /tmp/workspace
 
 workflows:
   version: 2.1
