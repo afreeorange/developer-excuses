@@ -11,6 +11,9 @@ jobs:
       - run:
           name: Building excuses, lol
           command: ./.circleci/build
+      - persist_to_workspace:
+          root: /root/project
+          paths: sorry.nikhil.io/
       - run:
           name: Deploying to S3
           command: ./.circleci/deploy
