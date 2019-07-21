@@ -1,10 +1,11 @@
 #!/bin/bash
 
-# Here only as an example of how to create a release...
+# Here only as an example of how to create a release.
+# Assuming that /workspace is persisted between
+# jobs, else this fails, lol.
 
+export VERSION="v2.0.0"
 tar -czvf sorry.nikhil.io.v2.0.0.tgz sorry.nikhil.io/
-
-env
 
 ghr \
     -t ${GITHUB_TOKEN} \
