@@ -4,6 +4,8 @@
 
 tar -czvf sorry.nikhil.io.v2.0.0.tgz sorry.nikhil.io/
 
+env
+
 ghr \
     -t ${GITHUB_TOKEN} \
     -u ${CIRCLE_PROJECT_USERNAME} \

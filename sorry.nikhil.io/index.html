@@ -64,13 +64,13 @@
 
         document.getElementById('loading').style.display = 'none';
         document.getElementById('excuse').innerText = excuse + ' ' + suffixEmoji;
-        document.title = "I'm Sorry; " + excuse;
+        document.title = 'I\'m Sorry; ' + excuse;
 
         return true;
     }
 
     window.onload = () => {
-        fetch(API_ENDPOINT)
+        fetch(API_ENDPOINT, {cache: "force-cache"})
         .then(response => {
             if (!response.ok) {
                 showErrorState();
