@@ -4,7 +4,7 @@
 # Assuming that /workspace is persisted between
 # jobs, else this fails, lol.
 
-export VERSION=$(cat $HOME/project/README.md)
+export VERSION=$(cat $HOME/project/.version)
 export RELEASE_ARTIFACT="sorry.nikhil.io.v$VERSION.tgz"
 
 tar -czvf "$RELEASE_ARTIFACT" sorry.nikhil.io/
