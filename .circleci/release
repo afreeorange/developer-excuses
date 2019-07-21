@@ -1,3 +1,13 @@
 #!/bin/bash
 
-ls -lA /workspace/*
+# Here only as an example of how to create a release...
+
+tar -czvf sorry.nikhil.io.v2.0.0.tgz sorry.nikhil.io/
+
+ghr \
+    -t ${GITHUB_TOKEN} \
+    -u ${CIRCLE_PROJECT_USERNAME} \
+    -r ${CIRCLE_PROJECT_REPONAME} \
+    -c ${CIRCLE_SHA1} \
+    -delete ${VERSION} \
+    sorry.nikhil.io.v2.0.0.tgz
