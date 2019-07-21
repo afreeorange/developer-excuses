@@ -4,8 +4,9 @@
 # Assuming that /workspace is persisted between
 # jobs, else this fails, lol.
 
-export VERSION="v2.0.0"
-tar -czvf sorry.nikhil.io.v2.0.0.tgz sorry.nikhil.io/
+VERSION=$(cat $HOME/project/README.md)
+TARBALL="sorry.nikhil.io.v$VERSION.tgz"
+tar -czvf "$TARBALL" sorry.nikhil.io/
 
 ghr \
     -t ${GITHUB_TOKEN} \
@@ -13,4 +14,4 @@ ghr \
     -r ${CIRCLE_PROJECT_REPONAME} \
     -c ${CIRCLE_SHA1} \
     -delete ${VERSION} \
-    sorry.nikhil.io.v2.0.0.tgz
+    "$TARBALL"

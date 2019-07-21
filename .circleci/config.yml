@@ -26,12 +26,12 @@ jobs:
       - attach_workspace:
           at: /workspace
       - run:
-          name: Trying Github
+          name: Releasing to GitHub
           command: ./.circleci/release
 
 workflows:
   version: 2.1
-  build_and_release:
+  build-and-release:
     jobs:
       - build
       - github-release:
