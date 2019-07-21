@@ -1,2 +1,5 @@
 #!/bin/bash
 
+apt install tree
+
+tree
