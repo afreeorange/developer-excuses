@@ -1,5 +1,3 @@
 #!/bin/bash
 
-ls -lA *
-sudo apt install tree
-tree
+ls -lA /workspace/*
