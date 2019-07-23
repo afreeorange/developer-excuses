@@ -31,7 +31,7 @@ jobs:
 
   aws-deploy:
     docker:
-      - image: cibuilds/github:0.10
+      - image: circleci/python:3.7
     steps:
       - aws-cli/install
       - attach_workspace:
