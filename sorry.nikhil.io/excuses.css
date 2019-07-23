@@ -16,7 +16,7 @@ html, body {
   height: 100%;
   line-height: 150%;
   overflow: hidden;
-  text-align: justify;
+  text-align: left;
 }
 
 h1 {
