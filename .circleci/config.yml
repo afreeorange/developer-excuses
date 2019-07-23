@@ -1,12 +1,13 @@
 version: 2.1
+
 orbs:
   aws-cli: circleci/aws-cli@0.1.13
+
 jobs:
   build:
     docker:
       - image: circleci/python:3.7
     steps:
-      - aws-cli/install
       - checkout
       - run:
           name: Building excuses, lol
@@ -22,12 +23,22 @@ jobs:
     docker:
       - image: cibuilds/github:0.10
     steps:
-      - checkout
       - attach_workspace:
           at: /workspace
       - run:
           name: Releasing to GitHub
           command: ./.circleci/release
+
+  aws-deploy:
+    docker:
+      - image: cibuilds/github:0.10
+    steps:
+      - aws-cli/install
+      - attach_workspace:
+          at: /workspace
+      - run:
+          name: Deploying to AWS
+          command: ./.circleci/deploy
 
 workflows:
   version: 2.1
@@ -35,5 +46,8 @@ workflows:
     jobs:
       - build
       - github-release:
+          requires:
+            - build
+      - aws-deploy:
           requires:
             - build

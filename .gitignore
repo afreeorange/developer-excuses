@@ -1,2 +1,4 @@
 dist/
 sorry.nikhil.io/excuses.json
+*.tgz
+*.tar.gz

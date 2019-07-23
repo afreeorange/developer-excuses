@@ -1,10 +1,23 @@
 #!/usr/local/bin/python
 
 import json
+import shutil
 from hashlib import md5
 
+DIST_FOLDER = "./dist/"
+
+# Clean up
+try:
+    shutil.rmtree(DIST_FOLDER)
+except Exception:
+    pass
+
+# Copy base files
+shutil.copytree('./sorry.nikhil.io', './dist')
+
+# Generate excuses JSON
 excuses = ""
-with open("excuses.txt") as f:
+with open("./excuses.txt") as f:
     excuses = f.readlines()
 
 excuses_in_json = {
@@ -12,5 +25,5 @@ excuses_in_json = {
     for excuse in excuses
 }
 
-with open('sorry.nikhil.io/excuses.json', 'w') as f:
+with open('./dist/excuses.json', 'w') as f:
     f.write(json.dumps(excuses_in_json))

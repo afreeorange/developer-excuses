@@ -4,11 +4,13 @@
 # Assuming that /workspace is persisted between
 # jobs, else this fails, lol.
 
-export VERSION=$(grep VERSION sorry.nikhil.io/index.html | awk '{print $2}')
+export VERSION=$(grep VERSION dist/index.html | awk '{print $2}')
 export RELEASE_ARTIFACT="sorry.nikhil.io.v$VERSION.tgz"
 
-tar -czvf "$RELEASE_ARTIFACT" sorry.nikhil.io/
+echo "Creating release"
+tar -czvf "$RELEASE_ARTIFACT" dist/
 
+echo "Releasing to GitHub"
 ghr \
     -t ${GITHUB_TOKEN} \
     -u ${CIRCLE_PROJECT_USERNAME} \
@@ -16,3 +18,6 @@ ghr \
     -c ${CIRCLE_SHA1} \
     -delete ${VERSION} \
     "$RELEASE_ARTIFACT"
+
+echo "Cleaning up release"
+rm -f "$RELEASE_ARTIFACT"

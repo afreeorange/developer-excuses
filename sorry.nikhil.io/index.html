@@ -1,5 +1,5 @@
 <!--
-VERSION 2.2.0
+VERSION 2.3.1
 -->
 
 <!DOCTYPE html>
@@ -26,74 +26,5 @@ VERSION 2.2.0
             <h1 id="excuse"></h1>
         </div>
     </body>
-    <script type="text/javascript">
-
-    const API_ENDPOINT = '/excuses.json';
-    let EXCUSES = {};
-
-    const randomExcuse = excuses => {
-        const keys = Object.keys(excuses);
-        const randomKey = keys[keys.length * Math.random() << 0];
-
-        return [randomKey, excuses[randomKey]];
-    };
-
-    const showErrorState = () => {
-        document.getElementById('loading').style.display = 'none';
-        document.getElementById('oh-crap').style.display = 'table-cell';
-
-        return false;
-    }
-
-    const showExcuses = () => {
-        let excuse;
-        let hash;
-        let suffixEmoji;
-
-        if (window.location.hash) {
-            const excuseHash = window.location.hash.split('#')[1];
-
-            if (Object.keys(EXCUSES).indexOf(excuseHash) === -1) {
-                [hash, excuse] = randomExcuse(EXCUSES);
-            } else {
-                excuse = EXCUSES[excuseHash];
-                hash = excuseHash;
-            }
-        } else {
-            [hash, excuse] = randomExcuse(EXCUSES);
-        }
-
-        suffixEmoji = (excuse[excuse.length - 1] === '?') ? '🤔' : '🤷‍♀️';;
-        history.pushState(null, null, "#" + hash);
-
-        document.getElementById('loading').style.display = 'none';
-        document.getElementById('excuse').innerText = excuse + ' ' + suffixEmoji;
-        document.title = 'I\'m Sorry; ' + excuse;
-
-        return true;
-    }
-
-    window.onload = () => {
-        fetch(API_ENDPOINT, {cache: "force-cache"})
-        .then(response => {
-            if (!response.ok) {
-                showErrorState();
-            } else {
-                return response.json();
-            }
-        })
-        .then(excuses => {
-            EXCUSES = excuses;
-            showExcuses();
-        })
-        .catch(e => {
-            showErrorState();
-        });
-    }
-
-    window.addEventListener('popstate', e => showExcuses());
-
-    document.body.addEventListener('click', e => window.location.href = '/');
-
-    </script>
+    <script type="text/javascript" src="/excuses.js"></script>
 </html>
