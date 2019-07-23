@@ -15,14 +15,12 @@ jobs:
       - persist_to_workspace:
           root: .
           paths: sorry.nikhil.io/*
-      - run:
-          name: Deploying to S3
-          command: ./.circleci/deploy
 
   github-release:
     docker:
       - image: cibuilds/github:0.10
     steps:
+      - checkout
       - attach_workspace:
           at: /workspace
       - run:
@@ -33,6 +31,7 @@ jobs:
     docker:
       - image: circleci/python:3.7
     steps:
+      - checkout
       - aws-cli/install
       - attach_workspace:
           at: /workspace
