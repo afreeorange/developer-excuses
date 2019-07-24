@@ -3,6 +3,8 @@
 # echo "Compressing excuses"
 # find ./dist/ -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
 
+ls -l /workspace
+
 echo "Deploying excuses to S3"
 # aws s3 sync --content-encoding 'gzip' dist/ s3://sorry.nikhil.io/
 aws s3 sync dist/ s3://sorry.nikhil.io/

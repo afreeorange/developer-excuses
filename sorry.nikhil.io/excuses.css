@@ -8,14 +8,13 @@
 a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,main,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section{display:block}[hidden]{display:none}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
 
 html, body {
-  background: rgb(0, 17, 165);
+  background: #0011a5;
   cursor: pointer;
   font-family: 'Roboto Mono', monospace;
-  font-size: 1.5em;
+  font-size: 1.75em;
   font-weight: 400;
   height: 100%;
   line-height: 150%;
-  overflow: hidden;
   text-align: left;
 }
 
@@ -28,7 +27,6 @@ h1 {
 
 #loading {
   color: #bcc9e8;
-
   text-align: center;
   display: table-cell;
   vertical-align: middle;
@@ -44,9 +42,69 @@ h1 {
 }
 
 #wrapper {
-  width: 90%;
+  width: 100%;
+  position: absolute;
   display: table;
   height: 100%;
   overflow: hidden;
   margin: 0 auto;
+}
+
+#excuse {
+  padding: 5%;
+}
+
+#tap {
+  width: 40px;
+  height: 40px;
+  z-index: 9;
+  position: absolute;
+  bottom: 25px;
+  right: 10px;
+}
+
+#tap svg path {
+  fill: #fff;
+  opacity: .25;
+}
+
+#show-list {
+  width: 25px;
+  height: 25px;
+  background: #fff;
+  opacity: .25;
+  border-radius: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 999;
+}
+
+#list-wrapper {
+  visibility: hidden;
+  position: relative;
+  z-index: 99;
+  width: 100%;
+}
+#list {
+  opacity: 0.85;
+  position: fixed;
+  overflow: scroll;
+  top: 0;
+  left: 0;
+  height: 100%;
+  font-size: 0.5em;
+  line-height: 1.5;
+  padding: 1em;
+  background: #000;
+}
+#list li {
+  margin-bottom: 1em;
+}
+#list li a {
+  color: white;
+  text-decoration: none;
+}
+#list li a:hover {
+  color: red;
 }
