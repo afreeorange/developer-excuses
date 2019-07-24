@@ -48,4 +48,4 @@ workflows:
             - build
       - aws-deploy:
           requires:
-            - build
+            - github-release
