@@ -31,8 +31,8 @@ jobs:
     docker:
       - image: circleci/python:3.7
     steps:
-      - attach_workspace:
-          at: /workspace
+      # - attach_workspace:
+      #     at: /workspace
       - aws-cli/install
       - run:
           name: Deploying to AWS
