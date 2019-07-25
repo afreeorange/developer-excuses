@@ -86,7 +86,7 @@ h1 {
   z-index: 99;
 }
 #list {
-  opacity: 0.85;
+  opacity: 0.9;
   position: fixed;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
