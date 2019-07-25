@@ -13,33 +13,31 @@ jobs:
           name: Building excuses, lol
           command: ./.circleci/build
       - persist_to_workspace:
-          root: .
-          paths: dist/*
+          root: ./
+          paths: ./*
 
   github-release:
     docker:
       - image: cibuilds/github:0.10
     steps:
-      - checkout
       - attach_workspace:
-          at: /workspace
-      - persist_to_workspace:
-          root: .
-          paths: ./*
+          at: ./
       - run:
           name: Releasing to GitHub
           command: ./.circleci/release
+      - persist_to_workspace:
+          root: ./
+          paths: ./*
 
   aws-deploy:
     docker:
       - image: circleci/python:3.7
     steps:
       - attach_workspace:
-          at: /foo
+          at: ./
       - checkout
       - aws-cli/install
-      - run: ls -l /foo
-      - run: ls -l /
+      - run: ls -l ./
       - run:
           name: Deploying to AWS
           command: ./.circleci/deploy
