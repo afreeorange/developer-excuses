@@ -104,6 +104,18 @@ const toggleList = () => {
     }
 };
 
+const searchFor = (term, links) => {
+    const _term = term.toLowerCase();
+
+    for (i = 0; i < links.length; i++) {
+        if (!links[i].innerHTML.toLowerCase().includes(_term)) {
+            links[i].parentElement.style.display = "none";
+        } else {
+            links[i].parentElement.style.display = "list-item";
+        }
+    }
+};
+
 window.onload = () => {
     getExcuses().then(excuses => {
         showExcuse();
@@ -119,6 +131,12 @@ window.onload = () => {
         for (let i = excuseLinks.length - 1; i >= 0; i--) {
             excuseLinks[i].addEventListener("click", () => toggleList());
         }
+
+        document
+            .getElementById("search")
+            .addEventListener("keyup", e =>
+                searchFor(e.target.value, excuseLinks)
+            );
     });
 };
 

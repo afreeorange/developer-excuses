@@ -85,27 +85,38 @@ h1 {
   position: relative;
   z-index: 99;
 }
+#search {
+  width: 100%;
+  background: #0011a5;
+  border: none;
+  padding: .75em;
+  color: #fff;
+  font-size: 1em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 2px solid #00549A;
+}
 #list {
-  opacity: 0.9;
+  opacity: 0.96;
   position: fixed;
   overflow: scroll;
-  -webkit-overflow-scrolling: touch;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
   font-size: 0.5em;
-  line-height: 1.5;
-  background: #000;
-  padding-top: .75em;
+  line-height: 1.25;
+  background: #0011a5;
 }
 #list li {
-  margin-bottom: 1em;
-  padding: 0 .5em;
+  padding: .65em;
+  border-bottom: 1px dotted #00549A;
 }
 #list li a {
   color: white;
   text-decoration: none;
+  display: block;
 }
 #list li a:hover {
   color: red;
