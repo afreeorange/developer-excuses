@@ -27,7 +27,8 @@ jobs:
           command: ./.circleci/release
       - persist_to_workspace:
           root: ./
-          paths: ./*
+          paths:
+            - dist/
 
   aws-deploy:
     docker:
