@@ -1,16 +1,14 @@
 #!/bin/bash
 
 # echo "Compressing excuses"
-# find ./dist/ -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
-
-ls -l /workspace
+find ./dist/ -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
 
 echo "Deploying excuses to S3"
-# aws s3 sync --content-encoding 'gzip' dist/ s3://sorry.nikhil.io/
-aws s3 sync dist/ s3://sorry.nikhil.io/
+# aws s3 sync dist/ s3://sorry.nikhil.io/
+aws s3 sync --content-encoding 'gzip' dist/ s3://sorry.nikhil.io/
 
 echo "Invalidating CloudFront cache"
-aws cloudfront create-invalidation --distribution-id E2OG23NL4HOLHD --paths '/*'
+aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION} --paths '/*'
 
 echo "Cleaning up"
 rm -rf ./dist
