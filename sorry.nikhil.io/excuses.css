@@ -97,7 +97,7 @@ h1 {
 }
 
 #show-list {
-    background: #fff;
+    border: 1px solid #fff;
     border-radius: 20px;
     height: 25px;
     opacity: .25;
@@ -118,10 +118,11 @@ h1 {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     background: #0011a5;
-    border-bottom: 2px solid #00549A;
     border: none;
+    border-bottom: 2px solid #00549A;
     box-sizing: border-box;
     color: #fff;
+    font-family: 'Roboto Mono', monospace;
     font-size: 1em;
     padding: .75em;
     width: 100%;
