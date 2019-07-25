@@ -108,6 +108,11 @@ h1 {
     z-index: 99;
 }
 
+#show-list:hover {
+    background: #fff;
+    opacity: .5;
+}
+
 #list-wrapper {
     position: relative;
     visibility: hidden;
