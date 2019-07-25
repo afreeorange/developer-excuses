@@ -25,7 +25,7 @@ jobs:
           at: /workspace
       - persist_to_workspace:
           root: .
-          paths: /*
+          paths: ./*
       - run:
           name: Releasing to GitHub
           command: ./.circleci/release
