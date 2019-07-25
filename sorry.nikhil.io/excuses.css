@@ -1,24 +1,18 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
-
 /*
   http://meyerweb.com/eric/tools/css/reset/
   v4.0 | 20180602
   License: none (public domain)
 */
 a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,main,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video {
-    margin: 0;
-    padding: 0;
     border: 0;
     font: inherit;
+    margin: 0;
+    padding: 0;
     vertical-align: baseline
 }
 
 article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section {
     display: block
-}
-
-[hidden] {
-    display: none
 }
 
 body {
@@ -62,26 +56,25 @@ h1 {
 
 #loading {
     color: #bcc9e8;
-    text-align: center;
     display: table-cell;
+    text-align: center;
     vertical-align: middle;
 }
 
 #oh-crap {
-    display: none;
     color: white;
-    text-align: center;
     display: none;
+    text-align: center;
     vertical-align: middle;
 }
 
 #wrapper {
-    width: 100%;
-    position: absolute;
     display: table;
     height: 100%;
-    overflow: hidden;
     margin: 0 auto;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
 }
 
 #excuse {
@@ -90,12 +83,12 @@ h1 {
 }
 
 #tap {
-    width: 40px;
-    height: 40px;
-    z-index: 9;
-    position: absolute;
     bottom: 15px;
+    height: 40px;
+    position: absolute;
     right: 10px;
+    width: 40px;
+    z-index: 9;
 }
 
 #tap svg path {
@@ -104,59 +97,59 @@ h1 {
 }
 
 #show-list {
-    width: 25px;
-    height: 25px;
     background: #fff;
-    opacity: .25;
     border-radius: 20px;
+    height: 25px;
+    opacity: .25;
     position: absolute;
-    top: 10px;
     right: 10px;
+    top: 10px;
+    width: 25px;
     z-index: 99;
 }
 
 #list-wrapper {
-    visibility: hidden;
     position: relative;
+    visibility: hidden;
     z-index: 99;
 }
 
 #search {
-    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     background: #0011a5;
+    border-bottom: 2px solid #00549A;
     border: none;
-    padding: .75em;
+    box-sizing: border-box;
     color: #fff;
     font-size: 1em;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border-bottom: 2px solid #00549A;
+    padding: .75em;
+    width: 100%;
 }
 
 #list {
-    opacity: 0.96;
-    position: fixed;
-    overflow: scroll;
     -webkit-overflow-scrolling: touch;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    font-size: 0.5em;
-    line-height: 1.25;
     background: #0011a5;
+    font-size: 0.5em;
+    height: 100%;
+    left: 0;
+    line-height: 1.25;
+    opacity: 0.96;
+    overflow: scroll;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 #list li {
-    padding: .65em;
     border-bottom: 1px dotted #00549A;
+    padding: .65em;
 }
 
 #list li a {
     color: white;
-    text-decoration: none;
     display: block;
+    text-decoration: none;
 }
 
 #list li a:hover {
