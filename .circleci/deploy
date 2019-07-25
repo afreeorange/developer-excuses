@@ -1,10 +1,9 @@
 #!/bin/bash
 
-# echo "Compressing excuses"
+echo "Compressing"
 find ./dist/ -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
 
-echo "Deploying excuses to S3"
-# aws s3 sync dist/ s3://sorry.nikhil.io/
+echo "Deploying to S3"
 aws s3 sync --content-encoding 'gzip' dist/ s3://sorry.nikhil.io/
 
 echo "Invalidating CloudFront cache"
