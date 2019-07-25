@@ -12,29 +12,29 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 }
 
 article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section {
-    display: block
+    display: block;
 }
 
 body {
-    line-height: 1
+    line-height: 1;
 }
 
 ol,ul {
-    list-style: none
+    list-style: none;
 }
 
 blockquote,q {
-    quotes: none
+    quotes: none;
 }
 
 blockquote:after,blockquote:before,q:after,q:before {
     content: '';
-    content: none
+    content: none;
 }
 
 table {
     border-collapse: collapse;
-    border-spacing: 0
+    border-spacing: 0;
 }
 
 html, body {
@@ -142,6 +142,7 @@ h1 {
     line-height: 1.25;
     opacity: 0.96;
     overflow: scroll;
+    overflow-x: hidden;
     position: fixed;
     top: 0;
     width: 100%;
