@@ -23,6 +23,9 @@ jobs:
       - checkout
       - attach_workspace:
           at: /workspace
+      - persist_to_workspace:
+          root: .
+          paths: /*
       - run:
           name: Releasing to GitHub
           command: ./.circleci/release
