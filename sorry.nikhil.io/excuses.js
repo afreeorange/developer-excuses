@@ -13,7 +13,7 @@ class TextScramble {
             const _from = oldText[i] || "";
             const to = newText[i] || "";
             const start = Math.floor(Math.random() * 15);
-            const end = start + Math.floor(Math.random() * 25);
+            const end = start + Math.floor(Math.random() * 30);
             this.queue.push({ _from, to, start, end });
         }
         cancelAnimationFrame(this.frameRequest);
@@ -200,7 +200,7 @@ window.onload = () => {
 
 window.addEventListener("popstate", e => showExcuse());
 document
-    .querySelector("#excuse")
+    .querySelector("#wrapper")
     .addEventListener("click", e => showExcuse(true));
 document
     .querySelector("#show-list")
