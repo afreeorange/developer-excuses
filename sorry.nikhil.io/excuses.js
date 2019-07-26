@@ -34,7 +34,7 @@ class TextScramble {
                     char = this.randomChar();
                     this.queue[i].char = char;
                 }
-                output += `<span class="filler">${char}</span>`;
+                output += `<span class="filler"> ${char}</span>`;
             } else {
                 output += _from;
             }
