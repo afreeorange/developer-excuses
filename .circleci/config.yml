@@ -32,7 +32,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ./
-      - aws-cli/install
       - run:
           name: Deploying to AWS
           command: ./.circleci/deploy
