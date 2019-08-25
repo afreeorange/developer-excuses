@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Here only as an example of how to create a release.
 # Assuming that /workspace is persisted between
 # jobs, else this fails, lol.

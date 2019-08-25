@@ -1,5 +1,3 @@
-#!/bin/bash
-
 echo "Compressing"
 find ./dist/ -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
 

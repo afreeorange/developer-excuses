@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Building excuses, lol
-          command: ./.circleci/build
+          command: /usr/bin/python3 ./.circleci/build
       - persist_to_workspace:
           root: ./
           paths: ./*
@@ -21,7 +21,7 @@ jobs:
           at: ./
       - run:
           name: Releasing to GitHub
-          command: ./.circleci/release
+          command: /bin/bash ./.circleci/release
       - persist_to_workspace:
           root: ./
           paths: ./*
@@ -34,7 +34,7 @@ jobs:
           at: ./
       - run:
           name: Deploying to AWS
-          command: ./.circleci/deploy
+          command: /bin/bash ./.circleci/deploy
 
 workflows:
   version: 2.1
