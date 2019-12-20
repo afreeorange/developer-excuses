@@ -11,39 +11,39 @@ html, body {
   text-align: left;
 }
 
-#wrapper {
-  position: absolute;
-  width: 100%;
+.wrapper {
+  box-sizing: border-box;
   height: 100%;
   padding: 4em 2em 2em 2em;
-  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
 }
 
-#excuse .filler {
+.excuse .filler {
   color: #fff;
   opacity: .25;
 }
 
-#loading {
+.loading {
   color: #bcc9e8;
 }
 
-#oh-crap {
+.oh-crap {
   display: none;
 }
 
-#list-wrapper {
+.list-wrapper {
   position: relative;
   visibility: hidden;
   z-index: 99;
 }
 
-#search {
+.search {
+  background: blue;
+  border-bottom: 2px solid #00549A;
+  border: none;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  background: #0011a5;
-  border: none;
-  border-bottom: 2px solid #00549A;
   box-sizing: border-box;
   color: #fff;
   font-family: "Roboto Mono", monospace;
@@ -52,7 +52,7 @@ html, body {
   width: 100%;
 }
 
-#list {
+.list {
   -webkit-overflow-scrolling: touch;
   background: #0011a5;
   font-size: 0.5em;
@@ -60,14 +60,14 @@ html, body {
   left: 0;
   line-height: 1.25;
   opacity: 0.96;
-  overflow: scroll;
   overflow-x: hidden;
+  overflow: scroll;
   position: fixed;
   top: 0;
   width: 100%;
 }
 
-#list li a {
+.list li a {
   border-bottom: 1px dotted #00549A;
   color: white;
   display: block;
@@ -75,11 +75,11 @@ html, body {
   text-decoration: none;
 }
 
-#list li a:hover {
+.list li a:hover {
   background: #00549A;
 }
 
-#show-list {
+.show-list {
   border: 1px solid #fff;
   border-radius: 20px;
   height: 30px;
@@ -91,12 +91,12 @@ html, body {
   z-index: 99;
 }
 
-#show-list:hover {
+.show-list:hover {
   background: #fff;
   opacity: .5;
 }
 
-#tap {
+.tap {
   bottom: 15px;
   height: 40px;
   position: fixed;
@@ -105,13 +105,13 @@ html, body {
   z-index: 9;
 }
 
-#tap svg path {
+.tap svg path {
   fill: #fff;
   opacity: .25;
 }
 
 @media screen and (max-width: 700px) {
-  #wrapper {
+  .wrapper {
     padding: 4em 1em 1em 1em;
   }
 }
