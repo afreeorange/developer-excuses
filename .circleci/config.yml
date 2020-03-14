@@ -9,7 +9,7 @@ jobs:
       - checkout
 
       - run:
-          name: Building excuses, lol
+          name: Building excuses 😂
           command: node .scripts/build.js
 
       - run:
@@ -21,6 +21,6 @@ jobs:
       - run:
           name: Deploying ☝️
           command:
-            find ./dist/ -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
+            find ./dist/ -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;;
             aws s3 sync --delete --content-encoding 'gzip' dist/ s3://sorry.nikhil.io/
             aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION} --paths '/index.html'
