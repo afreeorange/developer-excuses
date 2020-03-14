@@ -1,4 +1,5 @@
 import TextScramble from "./scramble";
+import excuses from "./excuses.json";
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -19,7 +20,6 @@ const suffixEmojis = [
   "💁‍♀️",
   "💁‍♂️",
 ];
-let EXCUSES = {};
 
 const randomSuffixEmoji = () =>
   suffixEmojis[(suffixEmojis.length * Math.random()) << 0];
@@ -46,14 +46,14 @@ const showExcuse = forceRefresh => {
   if (window.location.hash && forceRefresh !== true) {
     const excuseHash = window.location.hash.split("#")[1];
 
-    if (Object.keys(EXCUSES).indexOf(excuseHash) === -1) {
-      [hash, excuse] = randomExcuse(EXCUSES);
+    if (Object.keys(excuses).indexOf(excuseHash) === -1) {
+      [hash, excuse] = randomExcuse(excuses);
     } else {
-      excuse = EXCUSES[excuseHash];
+      excuse = excuses[excuseHash];
       hash = excuseHash;
     }
   } else {
-    [hash, excuse] = randomExcuse(EXCUSES);
+    [hash, excuse] = randomExcuse(excuses);
   }
 
   history.pushState(null, null, "#" + hash);
@@ -68,23 +68,6 @@ const showExcuse = forceRefresh => {
 
   return true;
 };
-
-const getExcuses = () =>
-  fetch(apiEndpoint, { cache: "force-cache" })
-    .then(response => {
-      if (!response.ok) {
-        showErrorState();
-      } else {
-        return response.json();
-      }
-    })
-    .then(excuses => {
-      EXCUSES = excuses;
-      return EXCUSES;
-    })
-    .catch(e => {
-      showErrorState();
-    });
 
 const createHTMLLink = (text, url) => {
   let a = document.createElement("a");
@@ -126,32 +109,30 @@ const searchFor = (term, links) => {
 };
 
 const generateExcuses = () => {
-  getExcuses().then(excuses => {
-    showExcuse();
+  showExcuse();
 
-    const list = $(".list");
-    Object.keys(excuses).map(hash =>
-      list.appendChild(createListItem(createHTMLLink(excuses[hash], hash))),
-    );
+  const list = $(".list");
+  Object.keys(excuses).map(hash =>
+    list.appendChild(createListItem(createHTMLLink(excuses[hash], hash))),
+  );
 
-    const excuseLinks = $$(".excuse-link");
-    for (let i = excuseLinks.length - 1; i >= 0; i--) {
-      excuseLinks[i].addEventListener("click", () => toggleList());
-    }
+  const excuseLinks = $$(".excuse-link");
+  for (let i = excuseLinks.length - 1; i >= 0; i--) {
+    excuseLinks[i].addEventListener("click", () => toggleList());
+  }
 
-    $(".search").addEventListener("keyup", e =>
-      searchFor(e.target.value, excuseLinks),
-    );
-  });
+  $(".search").addEventListener("keyup", e =>
+    searchFor(e.target.value, excuseLinks),
+  );
 };
 
-const closeSearch = (e) => {
+const closeSearch = e => {
   e && e.stopPropagation();
 
   if ($(".list-wrapper").style.visibility === "visible") {
     $(".list-wrapper").style.visibility = "hidden";
   }
-}
+};
 
 document.onkeydown = e => {
   e = e || window.event;

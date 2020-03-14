@@ -18,6 +18,6 @@ fs.readFileSync("excuses.txt", "utf8")
       ] = e),
   );
 
-fs.writeFileSync("excuses.json", JSON.stringify(hashedExcuses, null, 2));
+fs.writeFileSync("src/excuses.json", JSON.stringify(hashedExcuses, null, 2));
 
 console.timeEnd("Building");

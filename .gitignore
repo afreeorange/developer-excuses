@@ -3,3 +3,4 @@
 *.tgz
 dist/
 excuses.json
+package*.json
