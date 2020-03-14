@@ -14,9 +14,7 @@ jobs:
 
       - run:
           name: Building site
-          command: |-
-            parcel build src/index.html
-            mv excuses.json dist/
+          command: parcel build src/index.html
 
       - run:
           name: Deploying ☝️
