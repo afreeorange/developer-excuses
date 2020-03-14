@@ -114,13 +114,14 @@ const generateExcuses = () => {
   setTimeout(() => showExcuse(), 750);
 
   const list = $(".list");
+
   Object.keys(excuses).map(hash =>
     list.appendChild(createListItem(createHTMLLink(excuses[hash], hash))),
   );
 
   const excuseLinks = $$(".excuse-link");
   for (let i = excuseLinks.length - 1; i >= 0; i--) {
-    excuseLinks[i].addEventListener("click", () => showSearch());
+    excuseLinks[i].addEventListener("click", () => toggleSearch());
   }
 
   $(".search").addEventListener("keyup", e =>
