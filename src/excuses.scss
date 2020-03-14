@@ -1,0 +1,140 @@
+@import "./reset.css";
+
+$font-family: "Roboto Mono", monospace;
+
+html,
+body {
+  background: #0011a5;
+  color: #fff;
+  cursor: pointer;
+  font-family: $font-family;
+  font-size: 1.5em;
+  height: 100%;
+  line-height: 150%;
+  text-align: left;
+}
+
+.wrapper {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 4em 2em 2em 2em;
+  position: absolute;
+  width: 100%;
+}
+
+.excuse {
+  .filler {
+    color: #fff;
+    opacity: 0.25;
+  }
+}
+
+.loading {
+  color: #bcc9e8;
+}
+
+.oh-crap {
+  display: none;
+}
+
+.list-wrapper {
+  background: orange;
+  font-size: 0.5em!important;
+  height: 100%;
+  left: 0;
+  opacity: 0.96;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  width: 100%;
+  z-index: 99;
+
+  .search-wrapper {
+    background: blue;
+    display: grid;
+    grid-template-columns: auto 55px;
+    position: fixed;
+    width: 100%;
+
+    .search {
+      background: blue;
+      border: none;
+      box-sizing: border-box;
+      color: #fff;
+      font-family: $font-family;
+      font-size: 1.125em;
+      padding: 0.75em;
+      width: 100%;
+
+      &::placeholder {
+        color: #fff;
+      }
+    }
+
+    .close {
+      background: center center url("./img/close.png") no-repeat;
+      background-size: 35px;
+      opacity: 0.35;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .list {
+    -webkit-overflow-scrolling: touch;
+    background: #0011a5;
+    height: 100%;
+    line-height: 1.5;
+    padding-top: 3.5em;
+
+    li {
+      a {
+        border-bottom: 1px dotted #00549a;
+        color: white;
+        display: block;
+        padding: 0.65em;
+        text-decoration: none;
+
+        &:hover {
+          background: #00549a;
+        }
+      }
+    }
+  }
+}
+
+.show-list {
+  background-image: url("./img/search.png");
+  background-size: contain;
+  width: 35px;
+  height: 35px;
+  opacity: 0.35;
+  position: fixed;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 99;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.tap {
+  background: url("./img/tap.png");
+  background-size: contain;
+  bottom: 0.5rem;
+  height: 45px;
+  opacity: 0.25;
+  position: fixed;
+  right: 0.5rem;
+  width: 45px;
+  z-index: 9;
+}
+
+@media screen and (max-width: 700px) {
+  .wrapper {
+    padding: 4em 1em 1em 1em;
+  }
+}

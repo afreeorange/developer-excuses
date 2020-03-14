@@ -4,47 +4,23 @@ jobs:
   build:
     docker:
       - image: afreeorange/build:latest
+
     steps:
       - checkout
+
       - run:
           name: Building excuses, lol
-          command: /usr/bin/python3 ./.circleci/build
-      - persist_to_workspace:
-          root: ./
-          paths: ./*
+          command: node .scripts/build.js
 
-  github-release:
-    docker:
-      - image: afreeorange/build:latest
-    steps:
-      - attach_workspace:
-          at: ./
       - run:
-          name: Releasing to GitHub
-          command: /bin/bash ./.circleci/release
-      - persist_to_workspace:
-          root: ./
-          paths: ./*
+          name: Building site
+          command:
+            parcel build src/index.html
+            mv excuses.json dist/
 
-  aws-deploy:
-    docker:
-      - image: afreeorange/build:latest
-    steps:
-      - attach_workspace:
-          at: ./
       - run:
-          name: Deploying to AWS
-          command: /bin/bash ./.circleci/deploy
-
-workflows:
-  version: 2.1
-
-  build-and-release:
-    jobs:
-      - build
-      - github-release:
-          requires:
-            - build
-      - aws-deploy:
-          requires:
-            - github-release
+          name: Deploying ☝️
+          command:
+            find ./dist/ -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
+            aws s3 sync --delete --content-encoding 'gzip' dist/ s3://sorry.nikhil.io/
+            aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION} --paths '/index.html'

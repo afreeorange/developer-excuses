@@ -1,11 +1,11 @@
-Are you sure?
 Actually, that's a feature.
 Are you sure you don't have a problem with your internet connection?
 Are you sure you want it to work that way?
 Are you sure you've installed the latest patches to your browser?
 Are you sure you've installed the latest patches to your operating system?
-But we're a startup so what do you expect?
+Are you sure?
 But we're a small team so what do you expect?
+But we're a startup so what do you expect?
 But we're underresourced so what do you expect?
 Everyone was sick.
 Everything looks fine on my end.
@@ -14,7 +14,6 @@ Have you tried refreshing your browser?
 Have you updated your browser?
 Have you updated your OS?
 I couldn't find any library that can do that.
-I found a bug in the Framework.
 I couldn't reproduce that error.
 I did a quick fix for that already, it must have been reverted.
 I did a quick fix last time but it broke when we rebooted.
@@ -25,6 +24,7 @@ I don't remember that in the original specification.
 I don't see anything in my error logs.
 I forgot my computer.
 I forgot to commit the code that fixes that.
+I found a bug in the Framework.
 I had too many projects so I had to rush that feature.
 I have too many other high priority things to do right now.
 I haven't been able to reproduce that.
@@ -66,6 +66,7 @@ It must be a unicode issue.
 It must be a virus on your system.
 It must be an issue with the corporate firewall.
 It must be missing some dependencies.
+It must be the corporate proxy.
 It probably won't happen again.
 It was only a small change so I didn't think it needed tests.
 It was probably a race condition.
@@ -80,7 +81,6 @@ It's always been like that.
 It's always worked that way.
 It's just a warning, not an error.
 It's most likely a forwarding proxy server that is caching the response.
-It must be the corporate proxy.
 It's never done that before.
 It's never shown unexpected behavior like this before.
 It's not a bug, it's a feature.
