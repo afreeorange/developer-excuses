@@ -11,13 +11,11 @@ jobs:
       - run:
           name: Building excuses 😂
           command: node .scripts/build.js
-
       - run:
           name: Building site
           command: |-
             parcel build src/index.html
             mv excuses.json dist/
-
       - run:
           name: Deploying ☝️
           command: |-
