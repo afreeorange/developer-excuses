@@ -20,7 +20,7 @@ jobs:
 
       - run:
           name: Deploying ☝️
-          command:
-            find ./dist/ -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;;
+          command: |-
+            find ./dist/ -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
             aws s3 sync --delete --content-encoding 'gzip' dist/ s3://sorry.nikhil.io/
             aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION} --paths '/index.html'
