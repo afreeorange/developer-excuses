@@ -4,7 +4,6 @@ import excuses from "./excuses.json";
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 const scrambler = new TextScramble($(".excuse-text"));
-const apiEndpoint = "https://sorry.nikhil.io/excuses.json";
 const suffixEmojis = [
   "🤷‍♂️",
   "🤷‍♀️",
@@ -85,14 +84,17 @@ const createListItem = child => {
   return li;
 };
 
-const toggleList = () => {
-  const vis = $(".list-wrapper").style.visibility;
+const toggleSearch = e => {
+  e && e.stopPropagation();
 
-  if (vis === "visible") {
-    $(".list-wrapper").style.visibility = "hidden";
-  } else {
-    $(".list-wrapper").style.visibility = "visible";
+  if (
+    !$(".list-wrapper").style.display ||
+    $(".list-wrapper").style.display === "none"
+  ) {
+    $(".list-wrapper").style.display = "block";
     $(".search").select();
+  } else {
+    $(".list-wrapper").style.display = "none";
   }
 };
 
@@ -109,7 +111,7 @@ const searchFor = (term, links) => {
 };
 
 const generateExcuses = () => {
-  showExcuse();
+  setTimeout(() => showExcuse(), 750);
 
   const list = $(".list");
   Object.keys(excuses).map(hash =>
@@ -118,20 +120,12 @@ const generateExcuses = () => {
 
   const excuseLinks = $$(".excuse-link");
   for (let i = excuseLinks.length - 1; i >= 0; i--) {
-    excuseLinks[i].addEventListener("click", () => toggleList());
+    excuseLinks[i].addEventListener("click", () => showSearch());
   }
 
   $(".search").addEventListener("keyup", e =>
     searchFor(e.target.value, excuseLinks),
   );
-};
-
-const closeSearch = e => {
-  e && e.stopPropagation();
-
-  if ($(".list-wrapper").style.visibility === "visible") {
-    $(".list-wrapper").style.visibility = "hidden";
-  }
 };
 
 document.onkeydown = e => {
@@ -151,7 +145,7 @@ document.onkeydown = e => {
 
 window.addEventListener("popstate", e => showExcuse());
 $(".wrapper").addEventListener("click", e => showExcuse(true));
-$(".close").addEventListener("click", e => closeSearch(e));
-$(".show-list").addEventListener("click", e => toggleList());
+$(".close").addEventListener("click", e => toggleSearch(e));
+$(".show-list").addEventListener("click", e => toggleSearch());
 
 generateExcuses();
