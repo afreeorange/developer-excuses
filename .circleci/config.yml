@@ -12,9 +12,9 @@ jobs:
           name: Building excuses 😂
           command: node .scripts/build.js
 
-      - run: |-
+      - run:
           name: Building site
-          command:
+          command: |-
             parcel build src/index.html
             mv excuses.json dist/
 
