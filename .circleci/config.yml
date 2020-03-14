@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  build-and-deploy:
+  build:
     docker:
       - image: afreeorange/build:latest
 
