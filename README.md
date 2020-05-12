@@ -16,6 +16,11 @@ npm run start
 
 Add more excuses to excuses.txt 🙏
 
+### TODO
+
+* [ ] Web Manifests don't work
+* [ ] Need to add Apple Touch Icon
+
 ### Resources
 
 * [Eric Meyer's CSS Reset](http://meyerweb.com/eric/tools/css/reset/)

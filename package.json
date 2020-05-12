@@ -1,0 +1,24 @@
+{
+  "name": "developer-excuses",
+  "version": "1.0.0",
+  "description": "A list of developer excuses curated from around the web",
+  "main": "src/excuses.js",
+  "scripts": {
+    "build:excuses": "node .scripts/build.js",
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afreeorange/developer-excuses.git"
+  },
+  "author": "Nikhil Anand",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/afreeorange/developer-excuses/issues"
+  },
+  "homepage": "https://sorry.nikhil.io",
+  "devDependencies": {
+    "cssnano": "^4.1.10"
+  }
+}
