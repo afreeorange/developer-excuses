@@ -4,15 +4,17 @@ A list of developer excuses curated from around the web. [Deployed in The Cloud]
 
 ### Development
 
+Uses [Parcel](https://parceljs.org/) which will need to be installed globally.
+
 ```bash
 # Generate a JSON list from the text file (not checked in)
-node .scripts/build.js
+npm run build:excuses
 
 # Start a development server
-parcel src/index.html
-
-# Add more excuses to excuses.txt 🙏
+npm run start
 ```
+
+Add more excuses to excuses.txt 🙏
 
 ### Resources
 

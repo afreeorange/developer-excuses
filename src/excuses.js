@@ -59,7 +59,7 @@ const showExcuse = forceRefresh => {
 
   $(".loading").style.display = "none";
   $(".reaction").innerText = "";
-  document.title = "I'm Sorry; " + excuse;
+  document.title = "I'm Sorry: " + excuse;
 
   scrambler.setText(excuse).then(() => {
     $(".reaction").innerText = suffixEmoji;
@@ -111,7 +111,7 @@ const searchFor = (term, links) => {
 };
 
 const generateExcuses = () => {
-  setTimeout(() => showExcuse(), 750);
+  setTimeout(() => showExcuse(), 0);
 
   const list = $(".list");
 
