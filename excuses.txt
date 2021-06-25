@@ -56,6 +56,7 @@ I'm sure that was written by a freelancer.
 I've never seen that happen before!
 Is that not supposed to happen?
 It can't be broken because all the unittests pass.
+It can't be broken because unittest coverage is 100%.
 It has always worked before.
 It has never done that before.
 It is an intermittent error, just hit refresh.
