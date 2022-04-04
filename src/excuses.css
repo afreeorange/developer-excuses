@@ -63,7 +63,7 @@ body {
 }
 
 .search-wrapper .close {
-  background: center center url("./img/close.png") no-repeat;
+  background: center center url("./img/close.svg") no-repeat;
   background-size: 35px;
   opacity: 0.35;
 }
@@ -105,7 +105,7 @@ body {
 }
 
 .show-list {
-  background-image: url("./img/search.png");
+  background-image: url("./img/search.svg");
   background-size: contain;
   width: 35px;
   height: 35px;
@@ -121,7 +121,7 @@ body {
 }
 
 .tap {
-  background: url("./img/tap.png");
+  background: url("./img/tap.svg");
   background-size: contain;
   bottom: 0.5rem;
   height: 45px;

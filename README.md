@@ -12,6 +12,12 @@ npm run build:excuses
 
 # Start a development server
 npm run start
+
+# Clean artifacts
+npm run clean
+
+# Build
+npm run build
 ```
 
 Add more excuses to excuses.txt 🙏
