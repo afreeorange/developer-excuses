@@ -4,6 +4,9 @@ orbs:
   # https://circleci.com/developer/orbs/orb/circleci/aws-s3
   aws-s3: circleci/aws-s3@2.0.0
 
+  # https://circleci.com/developer/orbs/orb/topmonks/aws-cloudfront
+  aws-cloudfront: topmonks/aws-cloudfront@1.0.0
+
 jobs:
   build:
     docker:
@@ -25,9 +28,32 @@ jobs:
           command: npm run build
 
       - run:
-          name: Deploying ☝️
-          command: |-
-            find ./dist/ -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
-            aws s3 sync --exclude='manifest*.webmanifest' --delete --content-encoding 'gzip' dist/ s3://sorry.nikhil.io/
-            aws s3 sync --exclude='*' --include='manifest*.webmanifest' --content-encoding 'gzip' --content-type 'application/manifest+json' dist/ s3://sorry.nikhil.io/
-            aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION} --paths '/index.html'
+          name: Compressing
+          command: find ./dist/ -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
+
+      - aws-s3/sync:
+          aws-region: AWS_DEFAULT_REGION
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          from: dist/
+          to: "s3://sorry.nikhil.io/"
+          arguments: |
+            --exclude='manifest*.webmanifest' \
+            --delete \
+            --content-encoding 'gzip'
+
+      - aws-s3/sync:
+          aws-region: AWS_DEFAULT_REGION
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          from: dist/
+          to: "s3://sorry.nikhil.io/"
+          arguments: |
+            --exclude='*' \
+            --include='manifest*.webmanifest' \
+            --content-encoding 'gzip' \
+            --content-type 'application/manifest+json'
+
+      - aws-cloudfront/invalidate:
+          distribution_id: CLOUDFRONT_DISTRIBUTION
+          paths: "/index.html"
