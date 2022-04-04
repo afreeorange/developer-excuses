@@ -5,7 +5,7 @@ orbs:
   aws-s3: circleci/aws-s3@2.0.0
 
   # https://circleci.com/developer/orbs/orb/topmonks/aws-cloudfront
-  aws-cloudfront: topmonks/aws-cloudfront@1.0.0
+  # aws-cloudfront: topmonks/aws-cloudfront@1.0.0
 
 jobs:
   build:
@@ -54,6 +54,10 @@ jobs:
             --content-encoding 'gzip' \
             --content-type 'application/manifest+json'
 
-      - aws-cloudfront/invalidate:
-          distribution_id: CLOUDFRONT_DISTRIBUTION
-          paths: "/index.html"
+      # This is a third-party Orb. Might not be safe...
+      # - aws-cloudfront/invalidate:
+      #     aws-region: AWS_DEFAULT_REGION
+      #     aws-access-key-id: AWS_ACCESS_KEY_ID
+      #     aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+      #     distribution_id: CLOUDFRONT_DISTRIBUTION
+      #     paths: "/index.html"
