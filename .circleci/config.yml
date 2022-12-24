@@ -61,3 +61,10 @@ jobs:
       #     aws-secret-access-key: AWS_SECRET_ACCESS_KEY
       #     distribution_id: CLOUDFRONT_DISTRIBUTION
       #     paths: "/index.html"
+
+      - run:
+          name: Invalidating CloudFront distribution
+          command: |
+            aws cloudfront create-invalidation \
+              --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} \
+              --paths '/index.html'
