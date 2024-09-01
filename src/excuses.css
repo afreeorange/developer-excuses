@@ -18,12 +18,23 @@ body {
   text-align: left;
 }
 
+.noise {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url(./img/noise.gif);
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+  z-index: 10;
+}
+
 .wrapper {
   box-sizing: border-box;
   height: 100%;
   padding: 4em 2em 2em 2em;
   position: absolute;
   width: 100%;
+  z-index: 20;
 }
 
 .excuse .filler {
